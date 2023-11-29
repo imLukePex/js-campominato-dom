@@ -92,7 +92,7 @@ button {
     background-color: red;
 }
 
-.square.clicked.square-bomb {
+.square.clicked.square-free {
     background-color: #1389b2;
 }
 

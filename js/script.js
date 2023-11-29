@@ -7,7 +7,7 @@ const gridElement = document.getElementById("grid");
 const playButton = document.getElementById("play");
 
 // generare un array di numeri in ordine casuale in un range
-const newArrayNum = createMyArray(1, 16, 16);
+const newArrayNum = createMyArray(1, 100, 16);
 
 console.log(newArrayNum);
 
@@ -26,7 +26,13 @@ for (let i = 1; i <= 100; i++) {
                 myElement.addEventListener("click",
 
                     function() {
-                        myElement.classList.add("clicked");
+                        if(newArrayNum.includes(myElement(i))) {
+                            myElement.classList.add("square-bomb");
+                            console.log("Hai selezionato una bomba!!!");
+                        } else {
+                            myElement.classList.add("square-free");
+                        }
+
                         console.log(`Il numero selezionato è: ${i}`);
                     }
                 );
