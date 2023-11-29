@@ -84,8 +84,8 @@ button {
     font-size: 30px;
 }
 
-.clicked {
-    background-color: #1389b2;
+.square.clicked {
+    background-color: #0cd6a1;
 }
 
 .square.clicked.square-bomb {
