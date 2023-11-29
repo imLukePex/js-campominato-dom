@@ -6,6 +6,11 @@ const gridElement = document.getElementById("grid");
 // selezione bottone play
 const playButton = document.getElementById("play");
 
+// generare un array di numeri in ordine casuale in un range
+const newArrayNum = createMyArray(1, 16, 16);
+
+console.log(newArrayNum);
+
 // creazione ciclo della griglia
 for (let i = 1; i <= 100; i++) {
 
@@ -30,11 +35,46 @@ for (let i = 1; i <= 100; i++) {
 }
 
 
-// FUNZIONE
+// FUNZION 1
 
 function createMyElement(tagtype, classname) {
     const currentElement = document.createElement(tagtype);
     currentElement.classList.add(classname);
 
     return currentElement;
+}
+
+
+// FUNZION 2
+
+// funzione di creazione di un array per numeri random in un range specifico
+function createMyArray(minNum, maxNum, lengthArr) {
+
+    // Array da popolare
+    const newArray = [];
+
+    // ciclo che mi popola l'array
+    while (newArray.length < lengthArr) {
+
+        // generare un numero random diverso in un range (min, max)
+        let newNumber = genRandomNumMinMax(minNum, maxNum);
+        // SE il numero generato NON è già presente nell'array
+        if(!newArray.includes(newNumber)) {
+            // ALLORA lo pusho nell'array
+            newArray.push(newNumber);
+        }
+    }
+        
+    
+    return newArray;
+
+}
+
+
+// FUNZION 3
+
+// funzione che genera un numero random in un range (min, max)
+function genRandomNumMinMax(min, max) {
+
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
