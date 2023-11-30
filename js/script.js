@@ -14,6 +14,9 @@ const newArrayNum = createMyArray(1, 100, 16);
 
 console.log(newArrayNum);
 
+// punteggio
+let punteggio = 0;
+
 // creazione ciclo della griglia
 for (let i = 1; i <= 100; i++) {
 
@@ -32,13 +35,22 @@ for (let i = 1; i <= 100; i++) {
                         if(newArrayNum.includes(i)) {
                             myElement.classList.add("clicked");
                             myElement.classList.add("square-bomb");
-                            console.log(`Il numero selezionato è: ${i}`);
-                            console.log("Hai selezionato una bomba, hai perso!!!");
+                            alert("Hai cliccato su una bomba! Hai perso!!!");
+                            alert(`Hai totalizzato un punteggio di: ${punteggio}`);
+                            gridElement.innerHTML = '';
+                            // console.log(`Il numero selezionato è: ${i}`);
+                            // console.log("Hai selezionato una bomba, hai perso!!!");
                         } else {
                             myElement.classList.add("clicked");
                             myElement.classList.add("square-free");
-                            console.log(`Il numero selezionato è: ${i}`);
-                            console.log("Complimenti, non sei atterrato su una bomba!");
+                            console.log(`La cella selezionata è la numero: ${i}`);
+                            punteggio++;
+                            console.log("punteggio: ", punteggio);
+                        }
+
+                        if(punteggio === 84) {
+                            alert(`Complimenti! Hai ottenuto il punteggio massimo di ${punteggio} punti`);
+                            gridElement.innerHTML = '';
                         }
                     }
                 );
@@ -47,7 +59,10 @@ for (let i = 1; i <= 100; i++) {
 }
 
 
-// FUNZION 1
+
+
+
+// FUNZIONE 1
 
 function createMyElement(tagtype, classname) {
     const currentElement = document.createElement(tagtype);
@@ -57,7 +72,7 @@ function createMyElement(tagtype, classname) {
 }
 
 
-// FUNZION 2
+// FUNZIONE 2
 
 // funzione di creazione di un array per numeri random in un range specifico
 function createMyArray(minNum, maxNum, lengthArr) {
@@ -83,7 +98,7 @@ function createMyArray(minNum, maxNum, lengthArr) {
 }
 
 
-// FUNZION 3
+// FUNZIONE 3
 
 // funzione che genera un numero random in un range (min, max)
 function genRandomNumMinMax(min, max) {
